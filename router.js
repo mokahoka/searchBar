@@ -5,11 +5,9 @@ const router = express.Router()
 const { cites } = require('./data.js');
 
 
-// utils functions
-
+// Utils function
 const getCites = (query) => {
 
-	// add trims 
 	const results = cites.filter((val) => {
 		if( val.toLowerCase().indexOf(query) >= 0 ) return true
 		return false;
@@ -18,15 +16,16 @@ const getCites = (query) => {
 }
 
 // Routes
-
 router.get("/", (req,res) => {
-	res.send("Hello world!");
+	res.send("Hello search bar world!");
 });
+
 
 // using query params for fetching query;
 router.get("/api/:query", (req,res) => {
 	const {query} = req.params;
-	const results = getCites(query);
+	let results = getCites(query);
+	if( results.length > 10) results = results.slice(0,10)
 	res.json({results});
 })
 
