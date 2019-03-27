@@ -1,0 +1,28 @@
+/* CSS module */
+
+body{
+	display: flex;
+	justify-content: center;
+	box-sizing: border-box;
+}
+
+.container{
+	width: 90%;
+}
+
+
+#input{
+	width: 70%;
+	margin-right: 20px;
+}
+
+#search-results > a{
+	display: block;
+	max-width: 70%;
+	border: 1px solid black;
+}
+
+#search-results p{
+	padding-left: 10px;
+}
+
